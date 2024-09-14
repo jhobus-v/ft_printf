@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhobus-v <jhobus-v@student.42.fr>          +#+  +:+       +#+        */
+/*   By: johnny <johnny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 15:32:05 by jhobus-v          #+#    #+#             */
-/*   Updated: 2024/08/28 16:26:55 by jhobus-v         ###   ########.fr       */
+/*   Updated: 2024/09/05 21:11:00 by johnny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ int	ft_printf(const char *print, ...)
 			else if (print[i] == 'c')
 				printed_bytes += ft_putchar_fd(va_arg(armongus, int), 1);
 			else if (print[i] == 's')
-				printed_bytes += ft_putstr_fd(va_arg(armongus, char *), 1, printed_bytes);
+				printed_bytes += ft_putstr_fd(va_arg(armongus, char *), 1);
 			else if (print[i] == 'i' || print[i] == 'd')
-				printed_bytes += ft_putnbr_fd(va_arg(armongus, int), 1, printed_bytes);
+				printed_bytes += ft_putnbr_fd(va_arg(armongus, int), 1);
 			else if (print[i] == 'u')
 				printed_bytes += ft_putnbr_u_fd(va_arg(armongus, unsigned int), 1);
 			else if (print[i] == 'p')
@@ -56,10 +56,13 @@ int	ft_printf(const char *print, ...)
 
 int main()
 {
-    char *str = "Hello, World!";
+    char *str = "123";
     int number = 42;
     unsigned int unsigned_number = 123456;
     void *ptr = malloc(1); // Allocate a small block of memory for pointer testing
+
+	printf("value of printf mine:%i\n", ft_printf("hi!:%%"));
+	printf("value of printf original:%i\n", printf("hi!:%%"));
 
     // Test %c
     ft_printf("Character: %c\n", 'A');
