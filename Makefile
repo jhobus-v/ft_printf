@@ -6,13 +6,13 @@
 #    By: jhobus-v <jhobus-v@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/16 11:08:02 by jhobus-v          #+#    #+#              #
-#    Updated: 2024/09/16 11:30:03 by jhobus-v         ###   ########.fr        #
+#    Updated: 2024/09/16 14:52:30 by jhobus-v         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-SOURCE = ft_printf.c test.c
+SOURCE = ft_printf.c
 
 CC = cc
 
