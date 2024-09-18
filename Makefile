@@ -20,32 +20,25 @@ CFLAGS = -Wall -Wextra -Werror
 OBJ = $(SOURCE:.c=.o)
 LIBFT_OBJ = $(shell find $(LIBFT_DIR) -name "*.o")
 
-# Target to build the static library
 all: $(LIBFT) $(NAME)
 
-# Build libft if it's not already built
 $(LIBFT):
 	make -C $(LIBFT_DIR)
 
-# Build libftprintf.a and include libft object files
 $(NAME): $(OBJ) $(LIBFT)
 	ar rcs $(NAME) $(OBJ) $(LIBFT_OBJ)
 
-# Compile .c files to .o files
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# Clean object files and temporary files
 clean:
 	rm -f $(OBJ)
 	make clean -C $(LIBFT_DIR)
 
-# Remove all generated files including static libraries
 fclean: clean
 	rm -f $(NAME)
 	make fclean -C $(LIBFT_DIR)
 
-# Rebuild the library
 re: fclean all
 
 .PHONY: all clean fclean re
