@@ -6,7 +6,7 @@
 /*   By: jhobus-v <jhobus-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 15:32:05 by jhobus-v          #+#    #+#             */
-/*   Updated: 2024/09/16 12:19:06 by jhobus-v         ###   ########.fr       */
+/*   Updated: 2024/09/19 18:21:35 by jhobus-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ int	ft_printf(const char *print, ...)
 	i = 0;
 	printed_bytes = 0;
 	va_start(armongus, print);
+	if (!print)
+		return (-1);
 	while (print[i])
 	{
 		if (print[i] == '%')
@@ -62,3 +64,15 @@ int	ft_printf(const char *print, ...)
 	va_end(armongus);
 	return (printed_bytes);
 }
+
+/*int	main(void)
+{
+	int	i = 0;
+	int j = 0;
+
+	i = ft_printf(NULL);
+	j = printf(NULL);
+
+	printf ("ft_printf: %d\nOriginal: %d", i, j);
+	return (0);
+}*/
